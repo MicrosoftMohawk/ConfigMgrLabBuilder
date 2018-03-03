@@ -7,9 +7,9 @@ $P2SRootCertName = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -P
 $AddVPNCertParams = @{
     VpnClientRootCertificateName = $P2SRootCertName 
     VirtualNetworkGatewayname    = "MERLIN_VPN" 
-    ResourceGroupName            = "DEA_DEVELOPMENT_LAB" 
+    ResourceGroupName            = "DEA_DEV_LAB" 
     PublicCertData               = $CertBase64
 
 }
 
-Add-AzureRmVpnClientRootCertificate @AddVPNCertParams
+Add-AzureRmVpnClientRootCertificate @AddVPNCertParams05

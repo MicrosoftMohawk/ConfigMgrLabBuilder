@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "virtualMachineName": {
+            "value": "DC01"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        },
+        "virtualNetworkName": {
+            "value": "SCCM1702Lab"
+        },
+        "networkInterfaceName": {
+            "value": "dc01451"
+        },
+        "networkSecurityGroupName": {
+            "value": "DC01-nsg"
+        },
+        "storageAccountName": {
+            "value": "sccm1702disks144"
+        },
+        "storageAccountType": {
+            "value": "Premium_LRS"
+        },
+        "subnetName": {
+            "value": "Subnet1"
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "Eastern Standard Time"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownNotificationEmail": {
+            "value": "jaada@microsoft.com"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        }
+    }
+}
