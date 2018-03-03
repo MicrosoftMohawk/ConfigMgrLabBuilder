@@ -1,5 +1,5 @@
 $RGParams = @{
-    Name     = "DEA_DEVELOPMENT_LAB"
+    Name     = "DEA_DEV_LAB"
     Force    = $true
     Verbose  = $true
 }
