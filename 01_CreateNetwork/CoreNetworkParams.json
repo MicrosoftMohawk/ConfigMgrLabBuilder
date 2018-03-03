@@ -1,0 +1,39 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkName": {
+            "value": "DEA_MERLIN"
+        },
+        "AddressPrefix": {
+            "value": "172.1.0.0/16"
+        },
+        "rootSubnetPrefix": {
+            "value": "172.1.1.0/24"
+        },
+        "subnet1Prefix": {
+            "value": "172.1.10.0/24"
+        },
+        "subnet2Prefix": {
+            "value": "172.1.20.0/24"
+        },
+        "subnet3Prefix": {
+            "value": "172.1.30.0/24"
+        },
+        "rootSubnetName": {
+            "value": "DEA_ROOT"
+        },
+        "subnet1Name": {
+            "value": "DEA_MER_ROOT"
+        },
+        "subnet2Name": {
+            "value": "DEA_MER_DM_LAN"
+        },
+        "subnet3Name": {
+            "value": "DEA_MER_FR01"
+        },
+        "NSG": {
+            "value": "DEA_MER_NSG01"
+        }
+    }
+}

@@ -1,0 +1,177 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkName": {
+            "type": "string",
+            "defaultValue": "TestVNet",
+            "metadata": {
+                "description": "TestVNet"
+            }
+        },
+        "addressPrefix": {
+            "type": "string",
+            "defaultValue": "172.1.0.0/16",
+            "metadata": {
+                "description": "Class B vNet"
+            }
+        },
+        "RootSubnetPrefix": {
+            "type": "string",
+            "defaultValue": "172.1.1.0/24",
+            "metadata": {
+                "description": "CIDR prefix of RootSubnet"
+            }
+        },
+        "Subnet1Prefix": {
+            "type": "string",
+            "defaultValue": "172.1.10.0/24",
+            "metadata": {
+                "description": "CIDR prefix of Subnet1"
+            }
+        },
+        "Subnet2Prefix": {
+            "type": "string",
+            "defaultValue": "172.1.20.0/24",
+            "metadata": {
+                "description": "CIDR prefix of Subnet2"
+            }
+        },
+        "Subnet3Prefix": {
+            "type": "string",
+            "defaultValue": "172.1.30.0/24",
+            "metadata": {
+                "description": "CIDR prefix of Subnet3"
+            }
+        },
+        "RootSubnetName": {
+            "type": "string",
+            "defaultValue": "RootSubnet",
+            "metadata": {
+                "description": "Name of RootSubnet"
+            }
+        },
+        "Subnet1Name": {
+            "type": "string",
+            "defaultValue": "Subnet1",
+            "metadata": {
+                "description": "Name of Subnet1"
+            }
+        },
+        "Subnet2Name": {
+            "type": "string",
+            "defaultValue": "Subnet2",
+            "metadata": {
+                "description": "Name of Subnet2"
+            }
+        },
+        "Subnet3Name": {
+            "type": "string",
+            "defaultValue": "Subnet3",
+            "metadata": {
+                "description": "Name of Subnet3"
+            }
+        },
+        "NSG": {
+            "type": "string",
+            "defaultValue": "NSG",
+            "metadata": {
+                "description": "Network Security Group"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2016-07-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('NSG')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "Allow_Internet_Outbound",
+                        "properties": {
+                            "description": "Allow Web",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "Allow_Internet_Inbound",
+                        "properties": {
+                            "description": "Allow Web",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 101,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2016-07-01",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworkName')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.network/networkSecurityGroups/', parameters('NSG'))]"
+            ],
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('rootSubnetName')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('rootSubnetPrefix')]",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "[parameters('Subnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet1Prefix')]",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "[parameters('subnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet2Prefix')]",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "[parameters('subnet3Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet3Prefix')]",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG'))]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
