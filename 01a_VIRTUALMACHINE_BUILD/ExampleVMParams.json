@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "usgovvirginia"
+        },
+        "virtualMachineName": {
+            "value": "S16DCSROOT01"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS11_v2_Promo"
+        },
+        "adminUsername": {
+            "value": "deaadmin"
+        },
+        "virtualNetworkName": {
+            "value": "DEA_MERLIN"
+        },
+        "networkInterfaceName": {
+            "value": "S16DCSROOT01_LAN-vnic01"
+        },
+        "networkSecurityGroupName": {
+            "value": "DEA_MER_NSG01"
+        },
+        "storageAccountName": {
+            "value": "s16dcsroot01disks144"
+        },
+        "storageAccountType": {
+            "value": "Premium_LRS"
+        },
+        "subnetName": {
+            "value": "DEA_ROOT"
+        }
+    }
+}
