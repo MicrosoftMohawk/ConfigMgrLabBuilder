@@ -7,12 +7,12 @@
 #Get-AzureRmVirtualNetwork | Select-Object Name
 
 #Define variables
-$RG = "DEA_DEV_LAB"
-$ExistingVNet = "DEA_MERLIN"
+$RG = "DEV_LAB"
+$ExistingVNet = "DEV_LAB_vNET"
 $GWSubName = "GatewaySubnet"
 $GWSubPrefix = "172.1.253.0/24" #Prefixes must be part of the address space of the existing VNet (Example: 10.0.1.0/24)
-$GWName = "MERLIN_VPN" #(Example: tfsVNETgw)
-$GWpip = "MERLIN_VPN-ip" #(Example: tfsVNETgwPIP)
+$GWName = "DEV_LAB_VPN" #(Example: tfsVNETgw)
+$GWpip = "DEV_LAB_VPN-ip" #(Example: tfsVNETgwPIP)
 $VPNClientAddressPool = "172.2.50.0/24" #Example provided
 $Location = "usgovvirginia" #Resource location
 

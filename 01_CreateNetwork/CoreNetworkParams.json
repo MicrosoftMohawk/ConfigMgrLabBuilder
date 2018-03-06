@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualNetworkName": {
-            "value": "DEA_MERLIN"
+            "value": "DEV_LAB_vNET"
         },
         "AddressPrefix": {
             "value": "172.1.0.0/16"
@@ -21,19 +21,19 @@
             "value": "172.1.30.0/24"
         },
         "rootSubnetName": {
-            "value": "DEA_ROOT"
+            "value": "DEV_ROOT"
         },
         "subnet1Name": {
-            "value": "DEA_MER_DM_LAN"
+            "value": "DEV_DM_LAN"
         },
         "subnet2Name": {
-            "value": "DEA_MER_DM_DMZ"
+            "value": "DEV_DM_DMZ"
         },
         "subnet3Name": {
-            "value": "DEA_MER_FR01"
+            "value": "DEV_FR01"
         },
         "NSG": {
-            "value": "DEA_MER_NSG01"
+            "value": "DEV_NSG01"
         }
     }
 }

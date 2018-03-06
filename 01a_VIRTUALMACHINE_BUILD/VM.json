@@ -37,7 +37,7 @@
         }
     },
     "variables": {
-        "vnetId": "[resourceId('DEA_DEV_LAB','Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+        "vnetId": "[resourceId('DEV_LAB','Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
     },
     "resources": [
@@ -72,7 +72,7 @@
                     "osDisk": {
                         "createOption": "fromImage",
                         "vhd": {
-                            "uri": "[concat(concat(reference(resourceId('DEA_DEV_LAB', 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-06-15').primaryEndpoints['blob'], 'vhds/'), parameters('virtualMachineName'), '20180215085313.vhd')]"
+                            "uri": "[concat(concat(reference(resourceId('DEV_LAB', 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-06-15').primaryEndpoints['blob'], 'vhds/'), parameters('virtualMachineName'), '20180215085313.vhd')]"
                         },
                         "name": "[parameters('virtualMachineName')]"
                     },
@@ -113,12 +113,13 @@
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
                             },
-                            "privateIPAllocationMethod": "Dynamic"
+                            "privateIPAllocationMethod": "Static",
+                            "privateIPAddress": "172.1.1.250"
                         }
                     }
                 ],
                 "networkSecurityGroup": {
-                    "id": "[resourceId('DEA_DEV_LAB', 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
+                    "id": "[resourceId('DEV_LAB', 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
                 }
             }
         },

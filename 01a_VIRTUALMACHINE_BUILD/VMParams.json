@@ -12,25 +12,25 @@
             "value": "Standard_DS11_v2_Promo"
         },
         "adminUsername": {
-            "value": "deaadmin"
+            "value": "devadmin"
         },
         "virtualNetworkName": {
-            "value": "DEA_MERLIN"
+            "value": "DEV_LAB_vNET"
         },
         "networkInterfaceName": {
             "value": "S16DCSROOT01_LAN-vnic01"
         },
         "networkSecurityGroupName": {
-            "value": "DEA_MER_NSG01"
+            "value": "DEV_NSG01"
         },
         "storageAccountName": {
-            "value": "s16dcsroot01disks144"
+            "value": "devlabrootprem"
         },
         "storageAccountType": {
             "value": "Premium_LRS"
         },
         "subnetName": {
-            "value": "DEA_ROOT"
+            "value": "DEV_ROOT"
         }
     }
 }

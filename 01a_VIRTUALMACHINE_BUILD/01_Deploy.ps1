@@ -1,13 +1,13 @@
 $ARMParams = @{
-    ResourceGroupName       = "DEA_DEV_LAB"
-    TemplateFile            = ".\ExampleVM.json"
-    TemplateParameterFile   = ".\ExampleVMParams.json"
+    ResourceGroupName       = "DEV_LAB"
+    TemplateFile            = ".\VM.json"
+    TemplateParameterFile   = ".\VMParams.json"
     DeploymentDebugLogLevel = "All"
     Verbose                 = $true
 }
 
 $RGParams = @{
-    Name     = "DEA_DEV_LAB"
+    Name     = "DEV_LAB"
     Location = "usgovvirginia"
 }
 
